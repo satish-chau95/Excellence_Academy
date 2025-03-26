@@ -21,7 +21,7 @@ const Exam = () => {
   const fetchExams = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:4000/api/v1/exam/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/exam/getall`);
       if (response.data.success) {
         setExamData(response.data.exams);
       }
@@ -45,7 +45,7 @@ const Exam = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:4000/api/v1/exam', {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/exam`, {
         ...formData,
         marks: parseInt(formData.marks)
       });

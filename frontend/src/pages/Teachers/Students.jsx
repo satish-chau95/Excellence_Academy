@@ -15,7 +15,7 @@ const StudentSection = () => {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/students/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/students/getall`);
       setStudents(response.data.students);
     } catch (error) {
       console.error('Error fetching students:', error);

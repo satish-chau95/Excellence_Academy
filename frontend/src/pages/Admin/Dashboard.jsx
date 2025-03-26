@@ -32,7 +32,7 @@ const AdminDashboard = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/events/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/events/getall`);
       setEvents(response.data.events || []);
     } catch (error) {
       console.error('Error fetching events:', error);
@@ -41,7 +41,7 @@ const AdminDashboard = () => {
 
   const fetchAnnouncements = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/announcements/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/announcements/getall`);
       setAnnouncements(response.data.announcements || []);
     } catch (error) {
       console.error('Error fetching announcements:', error);
@@ -50,7 +50,7 @@ const AdminDashboard = () => {
 
   const fetchStudentPerformance = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/performance/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/performance/getall`);
       setStudentPerformance(response.data.performance || []);
     } catch (error) {
       console.error('Error fetching student performance:', error);

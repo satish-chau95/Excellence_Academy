@@ -21,7 +21,7 @@ const EventCalendar = () => {
   // Fetch events from backend
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/events/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/events/getall`);
       setEvents(response.data.events || []);
     } catch (error) {
       console.error('Error fetching events:', error);
@@ -42,7 +42,7 @@ const EventCalendar = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/events/create', {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/events/create`, {
         event: newEvent, // Ensure correct key
       });
 

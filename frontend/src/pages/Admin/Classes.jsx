@@ -24,7 +24,7 @@ const Classes = () => {
 
   const fetchClasses = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/class/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/class/getall`);
       if (response.data && Array.isArray(response.data.classes)) {
         setClasses(response.data.classes);
       } else {
@@ -39,7 +39,7 @@ const Classes = () => {
     e.preventDefault();
     if (newClassName.trim() !== '') {
       try {
-        const response = await axios.post('http://localhost:4000/api/v1/class', { grade: newClassName });
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/class`, { grade: newClassName });
         console.log('Response data:', response.data); // Log the response data
         setClasses(prevClasses => {
           if (Array.isArray(prevClasses)) {

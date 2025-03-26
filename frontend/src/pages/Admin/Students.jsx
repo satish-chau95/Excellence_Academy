@@ -24,7 +24,7 @@ const Students = () => {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/students/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/students/getall`);
       setStudents(response.data.students);
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -35,7 +35,7 @@ const Students = () => {
     e.preventDefault();
     if (newStudent.name.trim() !== '' && newStudent.registrationNumber.trim() !== '' && newStudent.grade.trim() !== '') {
       try {
-        const response = await axios.post('http://localhost:4000/api/v1/students', newStudent);
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/students`, newStudent);
         setStudents([...students, response.data.student]);
         setNewStudent({ name: '', registrationNumber: '', grade: '' });
       } catch (error) {

@@ -22,7 +22,7 @@ const StudentAssignments = () => {
 
   const fetchAssignments = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/assignments/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/assignments/getall`);
       setAssignments(response.data.assignments);
     } catch (error) {
       console.error('Error fetching assignments:', error);

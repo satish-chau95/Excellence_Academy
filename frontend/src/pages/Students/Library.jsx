@@ -22,7 +22,7 @@ const LibrarySection = () => {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/library/getall');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/library/getall`);
       setBooks(response.data.books);
     } catch (error) {
       console.error('Error fetching books:', error);

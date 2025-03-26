@@ -25,7 +25,7 @@ const CheckAttendanceSection = () => {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/v1/students/getall");
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/students/getall`);
       console.log("Fetched Students:", response.data);
 
       const studentList = response.data.students || [];
@@ -63,7 +63,7 @@ const CheckAttendanceSection = () => {
         student: id,
         status,
       }));
-      const response = await axios.post("http://localhost:4000/api/v1/attendance", { attendanceData: formattedData });
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/attendance`, { attendanceData: formattedData });
       console.log("Attendance data submitted:", response.data);
     } catch (error) {
       console.error("Error submitting attendance data:", error);

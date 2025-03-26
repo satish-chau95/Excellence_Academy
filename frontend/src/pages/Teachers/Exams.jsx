@@ -18,7 +18,7 @@ const CheckExamSection = () => {
 
   const fetchExams = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/exam');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/exam`);
       setExamData(response.data);
     } catch (error) {
       console.error('Error fetching exams:', error);
@@ -29,7 +29,7 @@ const CheckExamSection = () => {
     e.preventDefault();
     const newExam = { name, registrationNumber, className, marks: parseInt(marks) };
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/exam', newExam);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/exam`, newExam);
       setExamData([...examData, response.data]);
       setName('');
       setRegistrationNumber('');
