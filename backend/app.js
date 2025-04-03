@@ -16,7 +16,7 @@ import usersRouter from "./router/usersRouter.js"
 import adminRegisterRouter from "./router/adminRegisterRouter.js"
 import  { errorHandler } from "./middlewares/errorHandler.js";
 
-
+import chatRouter from "./router/chatRouter.js";
 
 const app = express();
 config({path: "./config/config.env"});
@@ -50,6 +50,8 @@ app.use("/api/v1/attendance", attendanceRouter);
 
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/register", adminRegisterRouter);
+
+app.use("/api/v1/chat", chatRouter);
 
 dbConnection();
  
